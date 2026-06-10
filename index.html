@@ -16,7 +16,7 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--white);font-family:var(--mono);overflow-x:hidden;cursor:none}
+body{background:var(--bg);color:var(--white);font-family:var(--mono);overflow-x:hidden;cursor:none}@media(pointer:coarse){body{cursor:auto}#cursor,#cursor-ring{display:none}}
 #cursor{position:fixed;width:10px;height:10px;background:var(--blue-light);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s;mix-blend-mode:screen}
 #cursor-ring{position:fixed;width:34px;height:34px;border:1px solid rgba(77,143,245,.6);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .14s ease,top .14s ease,width .2s,height .2s}
 body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(29,106,240,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(29,106,240,.04) 1px,transparent 1px);background-size:44px 44px;pointer-events:none;z-index:0}
@@ -156,13 +156,52 @@ footer{padding:2rem 4rem;border-top:1px solid var(--border);display:flex;justify
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:rgba(29,106,240,.4);border-radius:2px}
+/* ── MOBILE ── */
 @media(max-width:960px){
-  nav{padding:1rem 1.5rem}
-  #hero{padding:7rem 1.5rem 3rem}
-  .hero-right{position:static;transform:none;order:-1;margin-bottom:1rem}
-  .photo-frame{width:160px}.photo-frame img{height:190px}
-  #about,#skills,#projects,#experience,#certs,#contact,footer{padding-left:1.5rem;padding-right:1.5rem}
+  nav{padding:.85rem 1.2rem}
+  .nav-links{gap:1.2rem}
+  .nav-links a{font-size:.62rem}
+  #hero{padding:6rem 1.2rem 3rem;flex-direction:column;gap:2rem;align-items:center;text-align:center}
+  .hero-right{position:static;transform:none;order:-1;margin-bottom:.5rem}
+  .photo-frame{width:150px}.photo-frame img{height:178px}
+  .hero-left{max-width:100%}
+  .hero-cta{justify-content:center}
+  #about,#skills,#projects,#experience,#certs,#contact,footer{padding-left:1.2rem;padding-right:1.2rem}
   .about-grid{grid-template-columns:1fr;gap:2rem}
+  .projects-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .certs-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:.6rem;text-align:center}
+}
+@media(max-width:600px){
+  nav{padding:.75rem 1rem}
+  .nav-links{gap:.8rem}
+  .nav-links a{font-size:.58rem;letter-spacing:.08em}
+  .hero-name{font-size:2.6rem}
+  #hero{padding:5.5rem 1rem 2.5rem}
+  .photo-frame{width:130px}.photo-frame img{height:155px}
+  .photo-badge{font-size:.52rem;padding:5px 12px}
+  #about,#skills,#projects,#experience,#certs,#contact,footer{padding-left:1rem;padding-right:1rem}
+  .skills-grid{grid-template-columns:1fr}
+  .certs-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .project-screenshots.g2{grid-template-columns:1fr}
+  .project-screenshots.g2 img:first-child{display:none}
+  .section-title{font-size:1.6rem}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-num{font-size:2rem}
+  .contact-links{flex-direction:column;align-items:center}
+  .contact-link{width:100%;max-width:320px;justify-content:center}
+  .btn{font-size:.65rem;padding:10px 20px}
+  .tl-item{padding-left:1.8rem}
+  .tl-dot{left:-2.1rem}
+  footer{padding:1.5rem 1rem}
+}
+@media(max-width:400px){
+  .nav-links{gap:.5rem}
+  .nav-links a{font-size:.54rem}
+  .hero-name{font-size:2.2rem}
+  .hero-bio{font-size:.75rem}
 }
 </style>
 </head>
